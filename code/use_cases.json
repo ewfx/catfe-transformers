@@ -1,0 +1,80 @@
+{
+  "Sanctions & Compliance Risk": [
+    {
+      "use_case": "Transaction with a Sanctioned Entity",
+      "scenario": "A payment is sent to a beneficiary listed on the OFAC SDN list or other global watchlists.",
+      "risk": "Regulatory non-compliance leading to fines or legal action.",
+      "expected_outcome": "Transaction is blocked, and an alert is generated for compliance review."
+    },
+    {
+      "use_case": "Payments to High-Risk Jurisdictions",
+      "scenario": "A transaction is directed to a country with known AML/CTF risks (e.g., Iran, North Korea).",
+      "risk": "Exposure to money laundering or terrorist financing activities.",
+      "expected_outcome": "System flags or blocks transactions, requiring enhanced due diligence (EDD)."
+    }
+  ],
+  "Fraud Risk": [
+    {
+      "use_case": "Unusual Transaction Behavior (Transaction Monitoring)",
+      "scenario": "A user suddenly starts sending large payments to an unknown entity without transaction history.",
+      "risk": "Potential account takeover fraud or mule account activity.",
+      "expected_outcome": "System triggers an anomaly alert and may require additional authentication."
+    },
+    {
+      "use_case": "Transaction Structuring (Smurfing)",
+      "scenario": "A customer sends multiple small transactions just below reporting thresholds.",
+      "risk": "Attempt to evade AML reporting regulations.",
+      "expected_outcome": "System detects structuring patterns and triggers an alert."
+    }
+  ],
+  "Operational Risk": [
+    {
+      "use_case": "Duplicate Payment Processing",
+      "scenario": "A payment is processed twice due to a system or human error.",
+      "risk": "Financial loss and reputational damage.",
+      "expected_outcome": "System should detect and prevent duplicate transactions."
+    },
+    {
+      "use_case": "System Downtime During Critical Transactions",
+      "scenario": "A payment fails due to a system outage, leading to incomplete processing.",
+      "risk": "Transaction failure, financial loss, and customer dissatisfaction.",
+      "expected_outcome": "System should have a retry mechanism or alternative processing paths."
+    }
+  ],
+  "Transaction Validation": [
+    {
+      "use_case": "Validate financial transactions based on predefined rules & AI-driven recommendations",
+      "scenario": "Transaction validations with recommendations",
+      "risk": "False Positives in Fraud Detection",
+      "expected_outcome": "Approved"
+    }
+  ],
+  "Cybersecurity & Identity Risk": [
+    {
+      "use_case": "Payment Authorization from a New Device or Location",
+      "scenario": "A user logs in from a new device or foreign IP address and initiates a high-value payment.",
+      "risk": "Potential account compromise.",
+      "expected_outcome": "System triggers multi-factor authentication (MFA) or flags for manual review."
+    },
+    {
+      "use_case": "Man-in-the-Middle Attack on Payment API",
+      "scenario": "An attacker attempts to intercept or modify transaction details.",
+      "risk": "Payment redirection or data breach.",
+      "expected_outcome": "System should use encryption, tokenization, and secure API validation mechanisms."
+    }
+  ],
+  "Credit & Liquidity Risk": [
+    {
+      "use_case": "Insufficient Funds for High-Value Transaction",
+      "scenario": "A customer attempts to send a payment that exceeds their account balance.",
+      "risk": "Failed transactions or overdrafts.",
+      "expected_outcome": "System should reject or hold the transaction with a notification."
+    },
+    {
+      "use_case": "Large Real-Time Payment Causing Liquidity Stress",
+      "scenario": "A business initiates an unusually large payment, affecting the bank's liquidity.",
+      "risk": "Liquidity risk impacting settlement obligations.",
+      "expected_outcome": "System triggers a liquidity threshold check and possible delay in processing."
+    }
+  ]
+}
